@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DashBoard Page</title>
+</head>
+<body>
+<h1> DashBoard Page</h1>
+<h2> Welcome {{name}} </h2>
+
+{% if perms.my_app1.add_blog %}
+<input type="button" value="Add"><br><br>
+{% else %}
+<h2> No Add Permission </h2>
+{% endif %}
+
+{% if perms.my_app1.change_blog %}
+<input type="button" value="Change"><br><br>
+{% else %}
+<h2> No Change Permission </h2>
+{% endif %}
+
+{% if perms.my_app1.view_blog %}
+<input type="button" value="View"><br><br>
+{% else %}
+<h2> No View Permission </h2>
+{% endif %}
+
+{% if perms.my_app1.delete_blog %}
+<input type="button" value="Delete"><br><br>
+{% else %}
+<h2> No Delete Permission </h2>
+{% endif %}
+
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
